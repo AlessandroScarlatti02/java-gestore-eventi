@@ -78,7 +78,7 @@ public class Event {
 
         }
 
-        System.out.println("Hai prenotato correttamente solo " + i + " posti");
+        System.out.println("Hai prenotato correttamente " + i + " posti");
 
     }
 
@@ -98,7 +98,7 @@ public class Event {
 
     public void printSeatInformations() {
         System.out.println("\nI posti che hai prenotato per l'evento " + title + " sono " + getReservedSeat()
-                + " ne rimangono disponibili ancora " + (getTotalSeat() - getReservedSeat()) + "\n");
+                + " ne rimangono disponibili " + (getTotalSeat() - getReservedSeat()) + "\n");
     }
 
     private boolean checkDate() {
