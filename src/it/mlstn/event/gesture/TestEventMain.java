@@ -30,6 +30,8 @@ public class TestEventMain {
         e1.printSeatInformations();
         e1.reserve();
         e1.printSeatInformations();
+        e1.disdict();
+        e1.printSeatInformations();
 
     }
 

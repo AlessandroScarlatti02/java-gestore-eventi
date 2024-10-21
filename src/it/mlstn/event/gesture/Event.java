@@ -41,6 +41,10 @@ public class Event {
         return date;
     }
 
+    protected String getFormattedDate(){
+        return date.getDayOfMonth() + "/" + date.getMonthValue() + "/" + date.getYear();
+    }
+
     private void setTotalSeat(int totalSeat) throws Exception {
         if (totalSeat > 0) {
             this.totalSeat = totalSeat;
@@ -59,9 +63,8 @@ public class Event {
 
     public void reserve() {
         System.out.println("Sono disponibili " + (getTotalSeat() - getReservedSeat()) + " posti");
-        Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci il numero di posti che vuoi prenotare");
-        int n = scan.nextInt();
+        int n = scanNewNumber();
         int i = 0;
 
         if (checkDate()) {
@@ -84,16 +87,33 @@ public class Event {
 
     public void disdict() {
 
+        System.out.println("Hai prenotato " + reservedSeat + " quanti ne vuoi disdire?");
+        int n = scanNewNumber();
+        int i = 0;
+        
         if (checkDate()) {
-
-            if (reservedSeat != 0) {
-                reservedSeat--;
-            } else {
-                System.out.println("Non hai nessun posto prenotato");
+            
+            for (i = 0; i < n; i++) {
+                
+                if (reservedSeat>0) {
+                    reservedSeat--;
+                }else{
+                    System.out.println("Non hai più posti prenotati");
+                    break;
+                }
             }
-
         }
 
+        System.out.println("Hai disdetto correttamente " + i + " posti");
+    
+    }
+
+
+
+    private int scanNewNumber(){
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        return n;
     }
 
     public void printSeatInformations() {
